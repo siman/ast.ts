@@ -3,16 +3,16 @@ AST.ts
 
 Export AST (Abstract Syntax Tree) of TypeScript definitions
 
-== Install
+## Install
 
-Install Node.js and next modules:
+Install Node.js and then next modules:
 
 ```bash
 npm install typescript
 npm install typescript.api
 ```
 
-== Run
+## Run
 
 ```bash
 node main.js

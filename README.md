@@ -10,6 +10,7 @@ Install Node.js and then next modules:
 ```bash
 npm install typescript
 npm install typescript.api
+npm install mustache
 ```
 
 ## Run

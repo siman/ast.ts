@@ -1,4 +1,33 @@
 trait JQueryAjaxSettings {
+  var accepts: Option[any]
+  var async: Option[boolean]
+  var cache: Option[boolean]
+  var contents: Option[any]
+  var contentType: Option[any]
+  var context: Option[any]
+  var converters: Option[any]
+  var crossDomain: Option[boolean]
+  var data: Option[any]
+  var dataType: Option[string]
+  var global: Option[boolean]
+  var headers: Option[any]
+  var ifModified: Option[boolean]
+  var isLocal: Option[boolean]
+  var jsonp: Option[string]
+  var jsonpCallback: Option[any]
+  var mimeType: Option[string]
+  var password: Option[string]
+  var processData: Option[boolean]
+  var scriptCharset: Option[string]
+  var statusCode: Option[any]
+  var timeout: Option[number]
+  var traditional: Option[boolean]
+  var type: Option[string]
+  var url: Option[string]
+  var username: Option[string]
+  var xhr: Option[any]
+  var xhrFields: Option[any]
+
   def beforeSend(jqXHR: JQueryXHR, settings: JQueryAjaxSettings, ): any
   def complete(jqXHR: JQueryXHR, textStatus: string, ): any
   def dataFilter(data: any, ty: any, ): any
@@ -6,10 +35,12 @@ trait JQueryAjaxSettings {
   def success(data: any, textStatus: string, jqXHR: JQueryXHR, ): any
 }
 trait JQueryXHR {
+
   def overrideMimeType(mimeType: string, ): any
   def abort(statusText: Option[string], ): void
 }
 trait JQueryCallback {
+
   def add(callbacks: any, ): any
   def disable(): any
   def empty(): any
@@ -22,12 +53,14 @@ trait JQueryCallback {
   def remove(callbacks: any, ): any
 }
 trait JQueryGenericPromise {
+
   def then(onFulfill: Function, onReject: Option[Function], ): JQueryGenericPromise[U]
   def then(onFulfill: Function, onReject: Option[Function], ): JQueryGenericPromise[U]
   def then(onFulfill: Function, onReject: Option[Function], ): JQueryGenericPromise[U]
   def then(onFulfill: Function, onReject: Option[Function], ): JQueryGenericPromise[U]
 }
 trait JQueryPromise {
+
   def always(alwaysCallbacks: any, ): JQueryPromise[T]
   def done(doneCallbacks: any, ): JQueryPromise[T]
   def fail(failCallbacks: any, ): JQueryPromise[T]
@@ -43,6 +76,7 @@ trait JQueryPromise {
   def then(onFulfill: Function, onReject: Option[Function], onProgress: Option[Function], ): JQueryPromise[U]
 }
 trait JQueryDeferred {
+
   def always(alwaysCallbacks: any, ): JQueryDeferred[T]
   def done(doneCallbacks: any, ): JQueryDeferred[T]
   def fail(failCallbacks: any, ): JQueryDeferred[T]
@@ -58,6 +92,16 @@ trait JQueryDeferred {
   def promise(target: Option[any], ): JQueryPromise[T]
 }
 trait BaseJQueryEventObject {
+  var data: any
+  var delegateTarget: Element
+  var namespace: string
+  var relatedTarget: Element
+  var result: any
+  var pageX: number
+  var pageY: number
+  var which: number
+  var metaKey: any
+
   def isDefaultPrevented(): boolean
   def isImmediatePropogationStopped(): boolean
   def isPropagationStopped(): boolean
@@ -66,23 +110,77 @@ trait BaseJQueryEventObject {
   def stopPropagation(): void
 }
 trait JQueryInputEventObject {
+  var altKey: boolean
+  var ctrlKey: boolean
+  var metaKey: boolean
+  var shiftKey: boolean
+
 }
 trait JQueryMouseEventObject {
+  var button: number
+  var clientX: number
+  var clientY: number
+  var offsetX: number
+  var offsetY: number
+  var pageX: number
+  var pageY: number
+  var screenX: number
+  var screenY: number
+
 }
 trait JQueryKeyEventObject {
+  var char: any
+  var charCode: number
+  var key: any
+  var keyCode: number
+
 }
 trait JQueryPopStateEventObject {
+  var originalEvent: PopStateEvent
+
 }
 trait JQueryEventObject {
+
 }
 trait JQuerySupport {
+  var ajax: Option[boolean]
+  var boxModel: Option[boolean]
+  var changeBubbles: Option[boolean]
+  var checkClone: Option[boolean]
+  var checkOn: Option[boolean]
+  var cors: Option[boolean]
+  var cssFloat: Option[boolean]
+  var hrefNormalized: Option[boolean]
+  var htmlSerialize: Option[boolean]
+  var leadingWhitespace: Option[boolean]
+  var noCloneChecked: Option[boolean]
+  var noCloneEvent: Option[boolean]
+  var opacity: Option[boolean]
+  var optDisabled: Option[boolean]
+  var optSelected: Option[boolean]
+  var style: Option[boolean]
+  var submitBubbles: Option[boolean]
+  var tbody: Option[boolean]
+
   def scriptEval(): boolean
 }
 trait JQueryParam {
+
   def _call(obj: any, ): string
   def _call(obj: any, traditional: boolean, ): string
 }
 trait JQueryStatic {
+  var ajaxSettings: JQueryAjaxSettings
+  var param: JQueryParam
+  var cssHooks: any
+  var cssNumber: any
+  var fx: any
+  var Event: any
+  var expr: any
+  var fn: any
+  var isReady: boolean
+  var support: JQuerySupport
+
   def ajax(settings: JQueryAjaxSettings, ): JQueryXHR
   def ajax(url: string, settings: Option[JQueryAjaxSettings], ): JQueryXHR
   def ajaxPrefilter(dataTypes: string, handler: Function, ): any
@@ -154,6 +252,11 @@ trait JQueryStatic {
   def Animation(elem: any, properties: any, options: any, ): any
 }
 trait JQuery {
+  var context: Element
+  var jquery: string
+  var length: number
+  var selector: string
+
   def ajaxComplete(handler: any, ): JQuery
   def ajaxError(handler: Function, ): JQuery
   def ajaxSend(handler: Function, ): JQuery

@@ -1,5 +1,9 @@
 {{#interfaces}}
 trait {{name}} {
+  {{#variables}}
+  var {{name}}: {{#isOptional}}Option[{{/isOptional}}{{type.name}}{{#isOptional}}]{{/isOptional}}
+  {{/variables}}
+
   {{#methods}}
   def {{name}}({{#parameters}}{{name}}: {{#isOptional}}Option[{{/isOptional}}{{type.name}}{{#isOptional}}]{{/isOptional}}, {{/parameters}}){{#returns}}: {{name}}{{#arguments}}[{{name}}]{{/arguments}}{{/returns}}
   {{/methods}}

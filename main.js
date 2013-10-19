@@ -1,9 +1,11 @@
 var tsapi = require("typescript.api");
 var fs = require('fs');
+var Mustache = require('mustache');
 
 // var sourceUnit = tsapi.create("temp.ts", "var value:number = 123;");
 // var sourceUnit = "./jquery.d.ts";
 
+// var tsFile = './jquery.ts';
 var tsFile = './jquery.ts';
 
 tsapi.resolve([tsFile], function(resolved) {
@@ -18,6 +20,23 @@ tsapi.resolve([tsFile], function(resolved) {
 		        //var ast = compiled[n].ast;
 		        var res = compiled[n];
 
+		        //console.log("Mustache: " + Mustache);
+
+		        var template = fs.readFileSync("./templates/scala/source-full.mustache", 'utf8');
+		        console.log("template:\n" + template);
+
+				var output = Mustache.render(template, res.script);
+				console.log("output:\n" + output);
+
+
+				fs.writeFile(tsFile + ".scala", output, function(err) {
+				    if (err) {
+				    	console.log(err);
+				    } else {
+				    	console.log("Written to source file");
+				    }
+				}); 
+
 				fs.writeFile(tsFile + ".ast" + n + '.json', JSON.stringify(res, null, 4), function(err) {
 				    if (err) {
 				    	console.log(err);
@@ -27,7 +46,6 @@ tsapi.resolve([tsFile], function(resolved) {
 				}); 
 
 		        //console.log(JSON.stringify(compiled[n].ast));
-		        //console.log("Привет Мир!");
 		    }
 		});
     }

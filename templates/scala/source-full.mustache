@@ -1,0 +1,7 @@
+{{#interfaces}}
+trait {{name}} {
+  {{#methods}}
+  def {{name}}({{#parameters}}{{name}}: {{#isOptional}}Option[{{/isOptional}}{{type.name}}{{#isOptional}}]{{/isOptional}}, {{/parameters}}){{#returns}}: {{name}}{{#arguments}}[{{name}}]{{/arguments}}{{/returns}}
+  {{/methods}}
+}
+{{/interfaces}}

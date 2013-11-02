@@ -1,11 +1,11 @@
 {#interfaces}
-trait {name} {{~n}
+trait {name|mt|kw} {{~n}
   {#variables}
-{~s}{~s}var {name}: {#isOptional}Option[{/isOptional}{type.name}{#isOptional}]{/isOptional}{~n}
+{~s}{~s}var {name|mt|kw}: {#isOptional}Option[{/isOptional}{type.name|mt|kw}{#isOptional}]{/isOptional}{~n}
   {/variables}
 
   {#methods}
-{~s}{~s}def {name}({#parameters}{name}: {#isOptional}Option[{/isOptional}{type.name}{#isOptional}]{/isOptional}{@sep}, {/sep}{/parameters}){#returns}: {name}{#arguments}[{name}]{/arguments}{/returns}{~n}
+{~s}{~s}def {name|mt|kw}({#parameters}{name|mt|kw}: {#isOptional}Option[{/isOptional}{type.name|mt|kw}{#isOptional}]{/isOptional}{@sep}, {/sep}{/parameters}){#returns}: {name|mt|kw}{#arguments}[{name|mt|kw}]{/arguments}{/returns}{~n}
   {/methods}
 }{~n}
 {/interfaces}

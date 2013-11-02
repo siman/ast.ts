@@ -1,0 +1,11 @@
+{#interfaces}
+trait {name} {{~n}
+  {#variables}
+{~s}{~s}var {name}: {#isOptional}Option[{/isOptional}{type.name}{#isOptional}]{/isOptional}{~n}
+  {/variables}
+
+  {#methods}
+{~s}{~s}def {name}({#parameters}{name}: {#isOptional}Option[{/isOptional}{type.name}{#isOptional}]{/isOptional}{@sep}, {/sep}{/parameters}){#returns}: {name}{#arguments}[{name}]{/arguments}{/returns}{~n}
+  {/methods}
+}{~n}
+{/interfaces}

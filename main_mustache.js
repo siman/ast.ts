@@ -1,22 +1,12 @@
-var tsapi = require("typescript.api"),
-	fs = require('fs'),
-	dust = require('dustjs-linkedin'),
-	dustHelp = require('dustjs-helpers');
+var tsapi = require("typescript.api");
+var fs = require('fs');
+var Mustache = require('mustache');
 
 // var sourceUnit = tsapi.create("temp.ts", "var value:number = 123;");
 // var sourceUnit = "./jquery.d.ts";
 
 // var tsFile = './jquery.ts';
 var tsFile = './jquery.ts';
-
-var template = fs.readFileSync("./templates/scala/source.dust", 'utf8');
-console.log("template:\n" + template);
-
-// To preserve spaces
-// dust.optimizers.format = function(ctx, node) { return node };
-
-var compiled = dust.compile(template, "source", false);
-dust.loadSource(compiled);
 
 tsapi.resolve([tsFile], function(resolved) {
     if (!tsapi.check(resolved)) {
@@ -32,17 +22,20 @@ tsapi.resolve([tsFile], function(resolved) {
 
 		        //console.log("Mustache: " + Mustache);
 
-				dust.render("source", res.script, function(err, out) {
-					console.log(out);
-					fs.writeFile(tsFile + ".scala", out, function(err) {
-					    if (err) {
-					    	console.log(err);
-					    } else {
-					    	console.log("Written to source file");
-					    }
-					});
-				});
-				// console.log("output:\n" + output);	 
+		        var template = fs.readFileSync("./templates/scala/source-full.mustache", 'utf8');
+		        console.log("template:\n" + template);
+
+				var output = Mustache.render(template, res.script);
+				console.log("output:\n" + output);
+
+
+				fs.writeFile(tsFile + ".scala", output, function(err) {
+				    if (err) {
+				    	console.log(err);
+				    } else {
+				    	console.log("Written to source file");
+				    }
+				}); 
 
 				fs.writeFile(tsFile + ".ast" + n + '.json', JSON.stringify(res, null, 4), function(err) {
 				    if (err) {

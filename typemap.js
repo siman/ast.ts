@@ -50,6 +50,7 @@
     "boolean": "Boolean",
     "string": "String",
     "number": "Int",
-    "void": "Unit"
+    "void": "Unit",
+    "Object": "AnyRef"
   }
 }

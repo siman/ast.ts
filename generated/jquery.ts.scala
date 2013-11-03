@@ -186,7 +186,7 @@ trait JQueryStatic {
   def _call(func: Function): JQuery = ???
   def _call(array: Any): JQuery = ???
   def _call(): JQuery = ???
-  def noConflict(removeAll: Option[Boolean]): Object = ???
+  def noConflict(removeAll: Option[Boolean]): AnyRef = ???
   def when(deferreds: JQueryGenericPromise): JQueryPromise[T] = ???
   def when(deferreds: T): JQueryPromise[T] = ???
   def when(deferreds: Any): JQueryPromise[T] = ???
@@ -412,7 +412,7 @@ trait JQuery {
   def submit(handler: Function): JQuery = ???
   def trigger(eventType: String, extraParameters: Any): JQuery = ???
   def trigger(event: JQueryEventObject): JQuery = ???
-  def triggerHandler(eventType: String, extraParameters: Any): Object = ???
+  def triggerHandler(eventType: String, extraParameters: Any): AnyRef = ???
   def unbind(eventType: Option[String], handler: Option[Function]): JQuery = ???
   def unbind(eventType: String, fls: Boolean): JQuery = ???
   def unbind(evt: Any): JQuery = ???

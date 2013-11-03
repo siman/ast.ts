@@ -35,7 +35,7 @@ trait JQueryAjaxSettings {
 }
 trait JQueryXHR {
   def overrideMimeType(mimeType: String): Any = ???
-  def abort(statusText: Option[String]): void = ???
+  def abort(statusText: Option[String]): Unit = ???
 }
 trait JQueryCallback {
   def add(callbacks: Any): Any = ???
@@ -99,8 +99,8 @@ trait BaseJQueryEventObject {
   def isImmediatePropogationStopped(): Boolean = ???
   def isPropagationStopped(): Boolean = ???
   def preventDefault(): Any = ???
-  def stopImmediatePropagation(): void = ???
-  def stopPropagation(): void = ???
+  def stopImmediatePropagation(): Unit = ???
+  def stopPropagation(): Unit = ???
 }
 trait JQueryInputEventObject {
   var altKey: Boolean = ???
@@ -170,8 +170,8 @@ trait JQueryStatic {
   def ajax(url: String, settings: Option[JQueryAjaxSettings]): JQueryXHR = ???
   def ajaxPrefilter(dataTypes: String, handler: Function): Any = ???
   def ajaxPrefilter(handler: Function): Any = ???
-  def ajaxSetup(): void = ???
-  def ajaxSetup(options: JQueryAjaxSettings): void = ???
+  def ajaxSetup(): Unit = ???
+  def ajaxSetup(options: JQueryAjaxSettings): Unit = ???
   def get(url: String, data: Option[Any], success: Option[Any], dataType: Option[Any]): JQueryXHR = ???
   def getJSON(url: String, data: Option[Any], success: Option[Any]): JQueryXHR = ???
   def getScript(url: String, success: Option[Any]): JQueryXHR = ???

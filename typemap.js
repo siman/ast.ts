@@ -49,6 +49,7 @@
     "any": "Any",
     "boolean": "Boolean",
     "string": "String",
-    "number": "Int"
+    "number": "Int",
+    "void": "Unit"
   }
 }
